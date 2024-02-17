@@ -10,8 +10,7 @@ export default defineConfig({
     ],
 
     server: {
-        hmr: {
-            host: 'localhost'
-        }
+        host: 'devstagram.local',
+        port: 5173,
     }
 });
