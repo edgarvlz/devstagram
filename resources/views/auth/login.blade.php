@@ -10,26 +10,12 @@
             <img src="{{asset('img/login.jpg')}}" alt="Imagen login de usuarios">
         </div>
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
-            <form  novalidate>
+            <form method="post" action="{{ route('login') }}" novalidate>
                 @csrf
-                <div class="mb-5">
-                    <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">
-                        Nombre
-                    </label>
-                    <input
-                        id="name"
-                        name="name"
-                        type="text"
-                        placeholder="Tu Nombre"
-                        class="border p-3 w-full rounded-lg @error('name') border-red-500 @enderror"
-                        value="{{ old('name') }}"
-                    >
-                    @error('name')
-                        <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
-                    @enderror
-                </div>
 
-
+                @if (session('mensaje'))
+                    <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ session('mensaje') }}</p>
+                @endif
 
                 <div class="mb-5">
                     <label for="email" class="mb-2 block uppercase text-gray-500 font-bold">
@@ -64,9 +50,16 @@
                     @enderror
                 </div>
 
+                <div class=" mb-5">
+                    <input type="checkbox" name="remember" >
+                    <label for="" class="text-gray-500 text-sm">
+                        Mantener mi sesión abierta
+                    </label>
+                </div>
+
                 <input
                     type="submit"
-                    value="Crear Cuenta"
+                    value="Iniciar Sesión"
                     class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg"
                 >
             </form>
