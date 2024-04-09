@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\ImagenController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\logoutController;
 use App\Http\Controllers\RegisterController;
+use Illuminate\Contracts\Cache\Store;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +34,6 @@ Route::post('/logout', [logoutController::class, 'store'])->name('logout');
 Route::get('/{user:username}',[PostController::class, 'index'])->name('posts.index');
 
 Route::get('/posts/create',[PostController::class, 'create'])->name('posts.create');
+
+
+Route::post('/imagenes', [ImagenController::class, 'store'])->name('imagenes.store');

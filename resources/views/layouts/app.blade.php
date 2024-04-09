@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {{-- <link rel="stylesheet" href="{{ asset(css/app.css)}}"> --}}
         <title>DevsTagram - @yield('titulo')</title>
+        @stack('styles')
         @vite('resources/css/app.css')
         @vite('resources/js/app.js')
         {{-- <script src="{{asset(js/app.js)}}" defer></script> --}}
